@@ -1,5 +1,5 @@
-const web_cache = 'peter-v1';
-const filesToCache = [
+var cacheName = 'hello-pwa';
+var filesToCache = [
   '/',
   '/index.html',
   '/page1.html',
@@ -17,13 +17,20 @@ const filesToCache = [
   '/img/EnaBryan-360.webp'
 ];
 
-self.addEventListener('install', function(event) {
-  // Perform install steps
-  event.waitUntil(
-    caches.open(web_cache)
-      .then(function(cache) {
-        //Cache has been opened succesfully
-        return cache.addAll(filesToCache);
-      })
+/* Start the service worker and cache all of the app's content */
+self.addEventListener('install', function(e) {
+  e.waitUntil(
+    caches.open(cacheName).then(function(cache) {
+      return cache.addAll(filesToCache);
+    })
+  );
+});
+
+/* Serve cached content when offline */
+self.addEventListener('fetch', function(e) {
+  e.respondWith(
+    caches.match(e.request).then(function(response) {
+      return response || fetch(e.request);
+    })
   );
 });
