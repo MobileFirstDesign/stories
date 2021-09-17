@@ -1,0 +1,76 @@
+:root {
+    --theme: hsl(31, 14%, 47%);
+    --bkg: hsl(31, 14%, 100%);
+    --text:    hsl(31, 14%, 10%);
+    --image-filter: invert(0);
+}
+
+@media (prefers-color-scheme: dark) {
+:root {
+  --theme: hsl(31, 14%, 47%);
+  --text: hsl(31, 14%, 100%);
+  --bkg: hsl(31, 14%, 10%);
+  --image-filter: invert(90%);
+}
+img:not([src*=".svg"]) {
+    filter: var(--image-filter);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+ padding: 0;
+}
+html {
+font-size: 20px;
+line-height: 1.1;
+font-family: system-ui,-apple-system, sans-serif;
+height: 100%;
+font-weight: 400;
+scroll-behavior: smooth;
+}
+body{
+    background: var(--bkg);
+    color: var(--text);
+}
+main {
+    height: 100vh;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20px 1fr 60px;
+    text-align: center;
+    justify-content: space-between;
+ align-items: center;
+padding: 1rem 0 1rem 0;
+}
+.line-drawing {width:100%; height:100%;aspect-ratio: 3 / 4;}
+.tts {display: none;}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 48px;
+  outline: none;
+  padding: 0;
+  width: 48px;
+}
+#play, #pause, #stop {fill:none; stroke:var(--text);}
+ #play.played, #pause.paused, #stop.stopped { fill: var(--theme);}
+ @media  screen and (min-width:481px) {
+main{margin: 0 auto;
+    width:375px;
+height:667px;
+border:1px solid grey;
+border-radius:2ch;
+box-shadow:
+0 5px 2.5px hsla(200, 95%, 3%, .037),
+0 12px 6.5px hsla(200, 95%, 3%, .053),
+0 22.5px 13px hsla(200, 95%, 3%, .065),
+0 40.2px 24px hsla(200, 95%, 3%, .077),
+0 75.2px 44px hsla(200, 95%, 3%, .093),
+0 180px 80px hsla(200, 95%, 3%, .13);
+}
+ }
