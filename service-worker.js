@@ -1,12 +1,12 @@
 const web_cache = 'peter-v1';
 const filesToCache = [
   '/',
-  'index.html',
-  'page1.html',
-  'page2.html',
-  'page3.html',
-  'page4.html',
-  'page5.html',
+  '/index.html',
+  '/page1.html',
+  '/page2.html',
+  '/page3.html',
+  '/page4.html',
+  '/page5.html',
   '/css/peter.css',
   '/js/peter.js',
   '/img/boat-360.webp',
