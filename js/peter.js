@@ -14,7 +14,9 @@ onload = function() {
         if (!flag) {
           flag = true;
           utterance = new SpeechSynthesisUtterance(document.querySelector('article').textContent);
-          utterance.voice = getVoices()[0];
+         // utterance.voice = getVoices()[0];
+          voices = speechSynthesis.getVoices();//added
+          utterance.voice = voices.filter(function(voice) { return voice.name == 'Karen (en-AU)'; })[0];//added
           utterance.onend = function() {
             flag = false;
             playEle.className = pauseEle.className = '';
