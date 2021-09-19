@@ -8,7 +8,7 @@
     "lang" : "en-US",
     "orientation" : "portrait-primary",
     "description" : "An audio book about Peter's birthday gift",
-    "scope" : "/",
+    "scope" : "./",
     "icons": [
         {
           "src": "./img/favicons/android-chrome-192x192.png",
