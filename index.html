@@ -16,11 +16,9 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="#1f1f1f">
-    <link rel="apple-touch-startup-image" href="/launch.png">
+    <link rel="apple-touch-startup-image" href="./img/favicons/apple-splash.png">
     <link rel="icon" type="image/ico" href="./favicon.ico" />
-    <link rel="apple-touch-icon" href="/img/favicons/touch-icon-iphone.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/ipad.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/iphone-2x.png">
+    <link rel="apple-touch-icon" href="./img/favicons/apple-touch.png">
     <link rel="manifest" href="./manifest.json">
     <link rel="stylesheet" href="./css/peter.css">
 <style>
@@ -55,16 +53,13 @@
         </footer>
     </main>
     <script src="./js/peter.js"></script>
-    <script defer>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
+    <script>
+        if('serviceWorker' in navigator){
+            window.addEventListener('load',()=>{
                 navigator.serviceWorker.register('./service-worker.js')
-                .then((registration)=> {
-                    if (registration.active) {
-                        console.log('Service worker is active');
-                    }
-                })
-            });
+                .then(reg=>console.log('Service Worker: Registered (Pages)'))
+                .catch(err=>console.log(`Service Worker: Error: ${err}`))
+            })
         }
     </script>
 </body>
